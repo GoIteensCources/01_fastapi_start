@@ -19,7 +19,11 @@ def read_root():
 
 
 @app.get("/greet/")
-def read_greeting_query(name: str = Query(None, description="Enter your name")):
+def read_greeting_query(name: str = Query(None,
+                                          title="Hello api",
+                                          example="John Doe",
+                                          description="Enter your name")):
+    """ My description of API"""
     if name is None:
         return {"message": f"hello!"}
     return {"message": f"hello, {name}",
